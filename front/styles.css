@@ -1,0 +1,80 @@
+body {
+    background-color: #2b2a33;
+    margin: 0;
+    padding: 50px;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.main {
+    align-content: center;
+    width: 95vw;
+    height: 100vh;
+}
+
+.main h1 {
+    font-size: 80px;
+}
+
+.main h4 {
+    color: #4a4a4a;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+    width: 90vw;
+    margin-bottom: 100px;
+}
+
+.rank {
+    font-size: 18px;
+    width: 30vw;
+}
+
+.film_table {
+    align-self: center;
+    text-align: center;
+}
+
+.chart {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    padding: 25px;
+    width: 60vw;
+}
+
+.axis text {
+    fill: #cccccc;
+    font-size: 16px;
+}
+
+.axis line,
+.axis path {
+    stroke: #4a4a4a;
+    stroke-width: 1;
+}
+
+.grid line {
+    stroke: #3d3d3d;
+    stroke-dasharray: 4 2;
+}
+
+.chart-title {
+    font-size: 20px;
+    fill: #ffffff;
+    font-weight: 600;
+    align-content: center;
+}
+
+.axis-label {
+    font-size: 20px;
+    fill: #aaaaaa;
+}
+
+footer {
+    color: #3d3d3d;
+}
