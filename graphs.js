@@ -186,7 +186,7 @@ function updateMostExpensiveFilms(data) {
 
 // Load data and create charts
 function loadData() {
-    d3.json("data.json").then(data => {
+    d3.json("output/data.json").then(data => {
         createDistributorChart("chart3", data);
         
         const formattedData = data.map(d => ({
