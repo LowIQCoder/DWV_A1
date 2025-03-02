@@ -1,8 +1,8 @@
 // Function to create interactive vertical charts
 function createVerticalChart(containerId, data, xLabel, yLabel, chartTitle, tooltipData) {
     const margin = { top: 50, right: 40, bottom: 60, left: 80 };
-    const width = 1100 - margin.left - margin.right;
-    const height = 600 - margin.top - margin.bottom;
+    const width = 1000 - margin.left - margin.right;
+    const height = 850 - margin.top - margin.bottom;
 
     const svg = d3.select(`#${containerId}`).append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -40,7 +40,7 @@ function createVerticalChart(containerId, data, xLabel, yLabel, chartTitle, tool
     const film = tooltipData.find(f => f.year === d.x);
     tooltip.style("visibility", "visible")
         .transition() // Apply transition for fade-in effect
-        .duration(200)
+        .duration(700)
         .style("opacity", 1) // Fade in the tooltip
         .on("start", function() { // Set HTML content when the transition starts
             d3.select(this).html(`<strong>${film.title}</strong><br>${film.year}<br><strong>${yLabel}:</strong> $${d.y.toLocaleString()}`);
@@ -58,9 +58,9 @@ function createVerticalChart(containerId, data, xLabel, yLabel, chartTitle, tool
 
 // Function to create bar chart for distributors
 function createDistributorChart(containerId, data) {
-    const margin = { top: 50, right: 40, bottom: 120, left: 100 };
-    const width = 1300 - margin.left - margin.right;
-    const height = 800 - margin.top - margin.bottom;
+    const margin = { top: 50, right: 40, bottom: 120, left: 80 };
+    const width = 1000 - margin.left - margin.right;
+    const height = 850 - margin.top - margin.bottom;
 
     const svg = d3.select(`#${containerId}`).append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -150,7 +150,7 @@ function updateMostPopularDistributors(data) {
 
     distributorCounts.forEach(([distributor, count]) => {
         list.append("li")
-            .html(`<strong>${distributor}</strong> - ${count} films`);
+            .html(`<strong>${distributor}</strong>: <br> ${count} films`);
     });
 }
 
@@ -165,7 +165,7 @@ function updateHighestGrossingFilms(data) {
 
     topFilms.forEach(film => {
         list.append("li")
-            .html(`<strong>${film.title}</strong> (${film.year}) - $${film.box_office.toLocaleString()}`);
+            .html(`<strong>${film.title}</strong> (${film.year}): <br> $${film.box_office.toLocaleString()}`);
     });
 }
 
@@ -180,7 +180,7 @@ function updateMostExpensiveFilms(data) {
 
     topFilms.forEach(film => {
         list.append("li")
-            .html(`<strong>${film.title}</strong> (${film.year}) - $${film.budget.toLocaleString()}`);
+            .html(`<strong>${film.title}</strong> (${film.year}): <br> $${film.budget.toLocaleString()}`);
     });
 }
 
