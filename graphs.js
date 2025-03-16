@@ -1,8 +1,8 @@
 // Function to create interactive vertical charts
 function createVerticalChart(containerId, data, xLabel, yLabel, chartTitle, tooltipData) {
     const margin = { top: 50, right: 40, bottom: 60, left: 80 };
-    const width = 1000 - margin.left - margin.right;
-    const height = 850 - margin.top - margin.bottom;
+    const width = document.getElementById(containerId).clientWidth - margin.left - margin.right;
+    const height = document.getElementById(containerId).clientHeight - margin.top - margin.bottom;
 
     const svg = d3.select(`#${containerId}`).append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -39,7 +39,7 @@ function createVerticalChart(containerId, data, xLabel, yLabel, chartTitle, tool
         .on("mouseover", (event, d) => {
     const film = tooltipData.find(f => f.year === d.x);
     tooltip.style("visibility", "visible")
-        .transition() // Apply transition for fade-in effect
+        .transition()
         .duration(700)
         .style("opacity", 1) // Fade in the tooltip
         .on("start", function() { // Set HTML content when the transition starts
@@ -59,8 +59,8 @@ function createVerticalChart(containerId, data, xLabel, yLabel, chartTitle, tool
 // Function to create bar chart for distributors
 function createDistributorChart(containerId, data) {
     const margin = { top: 50, right: 40, bottom: 120, left: 80 };
-    const width = 1000 - margin.left - margin.right;
-    const height = 850 - margin.top - margin.bottom;
+    const width = document.getElementById(containerId).clientWidth - margin.left - margin.right;
+    const height = document.getElementById(containerId).clientHeight - margin.top - margin.bottom;
 
     const svg = d3.select(`#${containerId}`).append("svg")
         .attr("width", width + margin.left + margin.right)
